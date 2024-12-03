@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.2 on win32)" generated="20241203 10:55:46.888" rpa="false" schemaversion="4">
+<suite id="s1" name="apiTests" source="C:\Users\erbin.morales\Documents\SmartHome E2E\Mentorship 2024\Automation Project\tests\apiTests.robot">
+<test id="s1-t1" name="Verify Random Joke API" line="7">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" starttime="20241203 10:55:47.162" endtime="20241203 10:55:47.162"/>
+</kw>
+<kw name="Get Random Joke" library="keywords">
+<var>${joke}</var>
+<doc>Keyword to get a random joke.</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>jokesApi</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20241203 10:55:47.162" level="INFO">Creating Session using : alias=jokesApi, url=https://official-joke-api.appspot.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20241203 10:55:47.162" endtime="20241203 10:55:47.163"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alias=jokesApi</arg>
+<arg>url=/random_joke</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20241203 10:55:47.436" level="INFO">GET Request : url=https://official-joke-api.appspot.com/random_joke 
+ path_url=/random_joke 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20241203 10:55:47.437" level="INFO">GET Response : url=https://official-joke-api.appspot.com/random_joke 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Accept-Encoding', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'ETag': 'W/"62-KJ/wjU6cQTGi1ijPlTHFFgkerXE"', 'Content-Encoding': 'gzip', 'X-Cloud-Trace-Context': '9f0e2021e502971c71d0ba5d1e436873', 'Date': 'Tue, 03 Dec 2024 16:55:47 GMT', 'Server': 'Google Frontend', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} 
+ body={"type":"general","setup":"Why do bears have hairy coats?","punchline":"Fur protection.","id":341} 
+ </msg>
+<msg timestamp="20241203 10:55:47.437" level="INFO">C:\Users\erbin.morales\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'official-joke-api.appspot.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20241203 10:55:47.439" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20241203 10:55:47.163" endtime="20241203 10:55:47.440"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20241203 10:55:47.442" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20241203 10:55:47.440" endtime="20241203 10:55:47.443"/>
+</kw>
+<msg timestamp="20241203 10:55:47.445" level="INFO">${joke} = {'type': 'general', 'setup': 'Why do bears have hairy coats?', 'punchline': 'Fur protection.', 'id': 341}</msg>
+<status status="PASS" starttime="20241203 10:55:47.162" endtime="20241203 10:55:47.445"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Random joke: ${joke['setup']} - ${joke['punchline']}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241203 10:55:47.447" level="INFO">Random joke: Why do bears have hairy coats? - Fur protection.</msg>
+<status status="PASS" starttime="20241203 10:55:47.445" endtime="20241203 10:55:47.447"/>
+</kw>
+<kw name="Delete All Sessions" library="RequestsLibrary" type="TEARDOWN">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20241203 10:55:47.448" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20241203 10:55:47.448" endtime="20241203 10:55:47.448"/>
+</kw>
+<doc>Test to verify that the random joke API returns a valid response.</doc>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20241203 10:55:47.161" endtime="20241203 10:55:47.449"/>
+</test>
+<status status="PASS" starttime="20241203 10:55:46.890" endtime="20241203 10:55:47.451"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="apiTests">apiTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
