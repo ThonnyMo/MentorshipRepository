@@ -10,4 +10,4 @@ Get Random Joke
     Create Session    jokesApi    ${BASE_URL}
     ${response}=      Get On Session    alias=jokesApi    url=/random_joke
     Should Be Equal As Integers    ${response.status_code}    200
-    [Return]          ${response.json()}
+    RETURN          ${response.json()}
