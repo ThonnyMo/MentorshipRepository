@@ -9,8 +9,6 @@ phases:
   build:
     commands:
       - ls -R
-      - mkdir -p tests/resources
-      - mv resources/* tests/resources/
       - robot -d results tests/apiTests.robot
 
 artifacts:
