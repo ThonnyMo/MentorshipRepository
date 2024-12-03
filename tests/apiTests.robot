@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          ../resources/keywords.robot
+Resource          ../Resources/keywords.robot
 Test Setup        Run Keywords
 Test Teardown     Delete All Sessions
 
