@@ -12,5 +12,5 @@ This project demonstrates a simple automation test for the Random Joke API using
 ## Local Setup
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   git clone https://github.com/ThonnyMo/MentorshipRepository.git
+   cd https://github.com/ThonnyMo/MentorshipRepository.git
